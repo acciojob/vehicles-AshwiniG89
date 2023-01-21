@@ -7,6 +7,7 @@ public class F1 extends Car {
         //super();
         super(name,isManual);
         this.setName(name);
+
     }
     public F1(String name, int currentSpeed,int currentDirection) {
         super(name, currentSpeed, currentDirection);
@@ -17,7 +18,13 @@ public class F1 extends Car {
         //Use arbitrary values for parameters which are not mentioned
 
     }
-    public F1(String name,int currentSpeed,int currentDirection, int wheels, int doors, int gears, boolean isManual, String type, int seats){
+
+    @Override
+    public void move(int speed, int direction) {
+        super.move(speed, direction);
+    }
+
+    public F1(String name, int currentSpeed, int currentDirection, int wheels, int doors, int gears, boolean isManual, String type, int seats){
         super(name, currentSpeed,currentDirection,wheels, doors, gears, isManual, type, seats);
         this.setName(name);
         //this.isManual=false;
@@ -38,7 +45,17 @@ public class F1 extends Car {
          * speed 201-250: gear 5
          * speed more than 250: gear 6
          */
-        switch(rate){
+        int num=getCurrentSpeed();
+        int gear=1;
+         if ( 0 < num && num <= 50) gear=1;
+         if ( 50 < num && num <= 100) gear=2;
+        if ( 100 < num && num <= 150) gear=3;
+        if ( 151 < num && num <= 200) gear=3;
+        if ( 200 < num && num <= 250) gear=4;
+        if ( 250 < num) gear=6;
+
+
+        switch(gear){
             case 1: newSpeed=50;
                     break;
 
