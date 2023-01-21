@@ -45,34 +45,44 @@ public class F1 extends Car {
          * speed 201-250: gear 5
          * speed more than 250: gear 6
          */
-        int num=getCurrentSpeed();
-        int gear=1;
-         if ( 0 < num && num <= 50) gear=1;
-         if ( 50 < num && num <= 100) gear=2;
-        if ( 100 < num && num <= 150) gear=3;
-        if ( 151 < num && num <= 200) gear=3;
-        if ( 200 < num && num <= 250) gear=4;
-        if ( 250 < num) gear=6;
+
+         newSpeed=rate+getCurrentSpeed(); //set the value of new speed by using currentSpeed and rate
 
 
-        switch(gear){
-            case 1: newSpeed=50;
-                    break;
-
-            case 2: newSpeed=100;
-                    break;
-            case 3: newSpeed=150;
-                break;
-            case 4: newSpeed=200;
-                break;
-            case 5: newSpeed=250;
-                break;
-
+        if(newSpeed == 0) {
+            //Stop the car, set gear as 1
+            stop();
+            this.changeGear(1);
+            setCurrentGear(1);
             }
+        else if(newSpeed>=1&&newSpeed<=50){
+            this.changeGear(1);
+            setCurrentGear(1);}
+        else if(newSpeed>=51&&newSpeed<=100){
+            this.changeGear(2);
+             setCurrentGear(2);}
+        else if(newSpeed>=101&&newSpeed<=150){
+            this.changeGear(3);
+        setCurrentGear(3);}
+        else if(newSpeed>=151&&newSpeed<=200){
+            this.changeGear(4);
+        setCurrentGear(4);}
+        else if(newSpeed>=201&&newSpeed<=250){
+            this.changeGear(5);
+        setCurrentGear(5);}
+        else if(newSpeed>250){
+            this.changeGear(6);
+        setCurrentGear(6);
+
+        setCurrentSpeed(newSpeed);
+
+        if(newSpeed > 0) {
+            changeSpeed(newSpeed, getCurrentDirection());
+        }
         }
 
         //for all other cases, change the gear accordingly
 
-
     }
+}
 

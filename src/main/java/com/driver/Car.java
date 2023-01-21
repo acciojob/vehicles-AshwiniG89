@@ -34,6 +34,23 @@ public class Car extends Vehicle {
 
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCurrentGear() {
+        return currentGear;
+    }
+
+    public void setCurrentGear(int currentGear) {
+        this.currentGear = currentGear;
+    }
 
     public Car(String name, boolean isManual) {
         super(name, isManual);
