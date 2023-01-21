@@ -10,38 +10,84 @@ public class Car extends Vehicle {
     private int currentGear;
     private int seats;
 
-    public Car(String name,int currentSpeed,int currentDirection){
-        super(name, currentSpeed, currentDirection);
-        this.wheels=4;
-        this.doors= 4;
-        this.gears = 0;
-        this.isManual= false;
-        this.currentGear=0;
-        this.type=type;
-        this.seats=5;
-    }
-    public Car(String name,int currentSpeed,int currentDirection, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
-       super(name, currentSpeed, currentDirection);
+//    public Car(String name,int currentSpeed,int currentDirection){
+//        super(name, currentSpeed, currentDirection);
+//        this.wheels=4;
+//        this.doors= 4;
+//        this.gears = 0;
+//        this.isManual= false;
+//        this.currentGear=0;
+//        this.type=type;
+//        this.seats=5;
+//    }
+    public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
+       super(name);
         //Hint: Car extends Vehicle
        // this.setName(name);
         this.wheels=wheels;
         this.doors= doors;
         this.gears = gears;
-        this.isManual= false;
-        this.currentGear=0;
+        this.isManual= isManual;
+        this.currentGear=1;
         this.type=type;
         this.seats=seats;
 
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getWheels() {
+        return wheels;
+    }
+
+    public void setWheels(int wheels) {
+        this.wheels = wheels;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getDoors() {
+        return doors;
+    }
+
+    public void setDoors(int doors) {
+        this.doors = doors;
+    }
+
+    public int getGears() {
+        return gears;
+    }
+
+    public void setGears(int gears) {
+        this.gears = gears;
+    }
+
+    public boolean isManual() {
+        return isManual;
+    }
+
+    public void setManual(boolean manual) {
+        isManual = manual;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     public int getCurrentGear() {
@@ -52,10 +98,10 @@ public class Car extends Vehicle {
         this.currentGear = currentGear;
     }
 
-    public Car(String name, boolean isManual) {
-        super(name, isManual);
-        this.currentGear=0;
-    }
+//    public Car(String name, boolean isManual) {
+//        super(name, isManual);
+//        this.currentGear=0;
+//    }
 
     public void changeGear(int newGear){
         currentGear =newGear;
